@@ -7,6 +7,7 @@ body{
 h1{
 	font-family: 'Fredoka One', cursive;
 }
+
 /* Navbar */
 .navbar{
 	width: 100%;
@@ -22,8 +23,17 @@ h1{
 .navbar h1{
 	font-size: 25px;
 	text-align: left;
-	margin: 0 10px;
+	margin-top: 15px;
+	margin-left: 45px;
 	color: #2d2d30;
+}
+.navbar img{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 15px;
+	left: 10px;
+	display: inline-block;
 }
 .navbar a{
 	color: #2d2d30;
@@ -40,30 +50,47 @@ h1{
 	right: 20px;
 	top: 20px;
 }
+.navbar .dropbtn:hover{
+	cursor: pointer;
+}
 .navbar .dropbtn span{
 	margin-left: 5px;
 	margin-top: 1px;
 	font-size: 15px;
 }
 .nav-right{
-	width: 200px;
+	width: 250px;
 	height: 100%;
 	position: fixed;
-	right: 0;
+	right: -250px;
 	top: 60px;
 	background-color: #fff;
 	padding: 50px 0;
 	box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
-	display: none;
+	transition: right .5s ease;
 }
-.dropdown-content a{
+.dropdown{
+	width: 100%;
+	height: 100%;
+	display: relative;
+}
+.nav-bottom{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+}
+.dropdown-content a,
+.nav-bottom a{
 	width: 100%;
 	height: 20px;
 	padding: 10px 0;
 	display: inline-block;
 	text-align: center;
 }
-.dropdown-content a:hover{
+.dropdown-content a:hover,
+.nav-bottom a:hover{
 	background-color: #cecece;
 	transition: all .3s ease;
 }
@@ -78,16 +105,16 @@ h1{
 }
 .banner{
 	width: 100%;
-	height: 650px;
+	height: 680px;
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: 60px;
 }
 .container{
 	width: 100%;
-	height: 100%;
+	height: 650px;
 	position: relative;
-	background-color: transparent;
+	background-color: rgba(0, 0, 0, 0.5);
 	padding: auto;
 	padding-top: 100px;
 }
@@ -98,15 +125,19 @@ h1{
 }
 .box{
 	width: 100%;
-	height: 100%;
+	height: auto;
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: center;
+	padding-top: 100px;
 }
 .box-item{
 	flex-basis: 45%;
 	max-width: 45%;
+	max-height: 320px;
+	height: auto;
+	margin: 0 auto;
 	justify-content: center;
 }
 .chart{
@@ -115,23 +146,52 @@ h1{
 	padding: 0;
 }
 .description{
-	width: 50%;
+	width: 45%;
 	height: auto;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Slabo 27px', sans-serif;
 	padding: 0;
 	color: #000;
 	background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 2px 2px 4px 1px rgba(255, 255, 255, 0.2);
+	border-radius: 3px;
+	box-shadow: 2px 2px 5px 2px rgba(221, 221, 221, 0.2);
 	padding: 10px;
 }
+.description h2{
+	margin: 10px 5px;
+	font-family: 'Abril Fatface', cursive;
+}
+.description h2::nth-child(1){
+	margin-top: -15px;
+}
 
+/*Media queries*/
 @media screen and (min-width: 900px){
 
 }
 
 @media screen and (max-width: 900px){
-
+	canvas{
+		margin-top: 50px;
+	}
+	.dashboard img{
+		height: 800px;
+	}
+	.box{
+		padding-top: 0;
+	}
+	.box-item{
+		flex-basis: 90%;
+		max-width: 90%;
+		max-height: 500px;
+		margin: 20px auto;
+	}
+	.navbar h1{
+		font-size: 20px;
+		margin-top: 20px;
+	}
+	.navbar .dropbtn{
+		top: 22px;
+	}
 }
 
 @media screen and (max-width: 400px){
