@@ -11,8 +11,10 @@ $(document).ready(function(){
 function switchChart(id){
     if (id == 'bar-chart') {
         getAmounts();
+        $('#title').text('Total Cash Donations');
     } else if(id == 'pie-chart'){
         getCounties();
+        $('#title').text('Money Disbursed Per County');
     }
 }
 
@@ -124,6 +126,61 @@ function getCounties(){
     chart.append(mycanvas);
 }
 
+// function getGovt(){
+//     // getting county totals
+//     let cntyData = splitRecepient(funding)[1].filter((da)=>{ return da.amount !== 'INKIND'; });
+//     let counties = getValidCounties(cntyData);
+//     let countyAmounts = counties.map((county)=>{
+//         return getCountyTotals(county, cntyData)
+//     });
+
+//     var mycanvas = document.createElement("canvas");
+//     var ctx = mycanvas.getContext('2d');
+
+//     var doughnutChart = new Chart(ctx, {
+//         type: 'polarArea',
+//         data: {
+//             labels: ,
+//             datasets: [{
+//                 label: 'Amount',
+//                 data: countyAmounts,
+//                 backgroundColor: bgColors(counties.length)
+//             }]
+//         },
+//         options: {
+//             cutoutPercentage: 75,
+//             scales: {
+//                 yAxes: [{
+//                     ticks: {
+//                         beginAtZero: true,
+//                         display: false
+//                     },
+//                     gridLines: {
+//                         display: false
+//                     }
+//                 }],
+//                 xAxes: [{
+//                     ticks: {
+//                         beginAtZero: true,
+//                         display: false
+//                     },
+//                     gridLines: {
+//                         display: false
+//                     }
+//                 }]
+//             },
+//             legend: {
+//                 position: 'right'
+//             },
+//             responsive: true,
+//             responsiveAnimationDuration: 0
+//         }
+//     });
+
+//     chart.innerHTML = '';
+//     chart.append(mycanvas);
+// }
+
 function bgColors(arr_length){
     let bgCols = [];
 
@@ -232,3 +289,9 @@ function randomRGB(){
                 //     }
                 // });
 
+// function splitExpenditure(data){
+//     let natGov = data.filter((datumn)=>{
+//         return datum.expending_body == 'Nattional Government'
+//     })
+//     let countyGov = data.filter((datumn))
+// }
